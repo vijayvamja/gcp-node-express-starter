@@ -1,9 +1,15 @@
 class AuthService {
-  constructor() {}
+  constructor(logger) {
+    this._logger = logger;
+  }
 
-  login() {}
+  login() {
+    return { success: true };
+  }
 
-  register() {}
+  register() {
+    return { success: true };
+  }
 }
 
 module.exports = AuthService;

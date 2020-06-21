@@ -16,7 +16,8 @@
   "keywords": [
     "gcp",
     "node",
-    "express"
+    "express",
+    "cloud function"
   ],
   "author": "Vijay Vamja <vijayvamja2012@gmail.com>",
   "license": "ISC",
@@ -31,7 +32,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "http-errors": "^1.7.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "winston": "^3.3.0"
   },
   "devDependencies": {
     "@google-cloud/functions-framework": "^1.6.0",

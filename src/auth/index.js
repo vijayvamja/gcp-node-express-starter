@@ -1,5 +1,3 @@
 const AuthService = require('./auth');
 
-module.exports = () => {
-  return new AuthService();
-};
+module.exports = (logger) => new AuthService(logger);
