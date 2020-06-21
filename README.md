@@ -3,7 +3,13 @@
 ## Run locally
 
 First, install node dependencies
-  npm install
+
+```bash
+npm i
+```
 
 To run the app
-  npm start
+
+```bash
+npm start
+```
