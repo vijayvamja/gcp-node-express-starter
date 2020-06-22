@@ -4,40 +4,39 @@ const { celebrate, Joi, Segments } = require('celebrate');
 const router = express.Router();
 
 const validations = {
-  register: {
+  createLead: {
     [Segments.BODY]: Joi.object().keys({
       firstName: Joi.string().required(),
       lastName: Joi.string().required(),
       email: Joi.string().required(),
-      password: Joi.string().required(),
-    }),
-  },
-  login: {
-    [Segments.BODY]: Joi.object().keys({
-      email: Joi.string().required(),
-      password: Joi.string().required(),
+      phone: Joi.string().required(),
+      description: Joi.string(),
     }),
   },
 };
 
-router.post('/login', celebrate(validations.login), (req, res, next) => {
-  const { auth } = req.app.context;
+router.get('/leads', async (req, res, next) => {
+  const { lead } = req.app.context;
   try {
-    const response = auth.login();
+    const response = await lead.listLeads(req.body);
     res.json(response);
   } catch (e) {
     next(e);
   }
 });
 
-router.post('/register', celebrate(validations.register), (req, res, next) => {
-  const { auth } = req.app.context;
-  try {
-    const response = auth.register();
-    res.json(response);
-  } catch (e) {
-    next(e);
-  }
-});
+router.post(
+  '/lead',
+  celebrate(validations.createLead),
+  async (req, res, next) => {
+    const { lead } = req.app.context;
+    try {
+      const response = await lead.createLead(req.body);
+      res.json(response);
+    } catch (e) {
+      next(e);
+    }
+  },
+);
 
 module.exports = router;
