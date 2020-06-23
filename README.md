@@ -1,4 +1,4 @@
-# Google Cloud Functions with Node.js and Express
+# Google Cloud Functions with Node.js, Express and MongoDB
 
 ## Run locally
 
