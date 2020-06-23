@@ -11,11 +11,7 @@ jobs:
 
     env:
       NODE_ENV: development
-      LOG_LEVEL: silly
       GCP_PROJECT: gcp-starter
-      FUNCTION_NAME: app
-      FUNCTION_RUNTIME: nodejs10
-      FUNCTION_ENTRYPOINT: app
 
     steps:
       - uses: actions/checkout@v1
@@ -32,3 +28,8 @@ jobs:
           --entry-point=$FUNCTION_ENTRYPOINT \
           --trigger-http \
           --set-env-vars="NODE_ENV=$NODE_ENV,LOG_LEVEL=$LOG_LEVEL,MONGO_HOST=${{ secrets.MONGO_HOST }}"
+        env:
+          LOG_LEVEL: silly
+          FUNCTION_NAME: gcp-starter
+          FUNCTION_RUNTIME: nodejs10
+          FUNCTION_ENTRYPOINT: app
